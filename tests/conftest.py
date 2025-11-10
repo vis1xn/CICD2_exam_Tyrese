@@ -44,3 +44,15 @@ def client():
     app.dependency_overrides[get_db] = override_get_db
     with TestClient(app) as c:
         yield c
+
+app.dependency_overrides.clear()
+Base.metadata.drop_all(bind = engine)
+
+def test_create_author(client):
+    r = client.post("api/authors", json = {"name": "Tyrese", "email": "tyrese@atu.ie", "year": 2004, "author_id": S7654321})
+assert r.status_code == 201
+
+def test_put_author(client):
+    r = client.post("api/authors", json = {"name": "TyreseJ", "email": "tyresej@atu.ie", "year": 2003, "author_id": S88888888})
+assert r.status_code == 201
+author_id = r.json()["id"]

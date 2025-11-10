@@ -14,7 +14,7 @@ class AuthorCreate(BaseModel):
     name: NameStr
     email: EmailStr
     author_id: Author_id
-    year_started: YearInt
+    year: YearInt
     #BookDB
     book_id: Book_id
     title: TitleStr
