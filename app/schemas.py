@@ -10,10 +10,12 @@ TitleStr = Annotated[str, StringConstraints(min_length=1, max_length=255)]
 PagesInt = Annotated[int, Ge(1), Le(10000)]
 
 class AuthorCreate(BaseModel):
+    #AuthorDB
     name: NameStr
     email: EmailStr
     author_id: Author_id
+    year_started: YearInt
+    #BookDB
     book_id: Book_id
     title: TitleStr
-    year_started: YearInt
     pages: PagesInt
