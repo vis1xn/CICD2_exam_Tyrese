@@ -4,4 +4,8 @@ from sqlalchemy import String, Integer, ForeignKey, UniqueConstraint
 class Base(DeclarativeBase):
     pass
 
+class AuthorDB(Base):
+    __tablename__="authors"
+    
+
 
